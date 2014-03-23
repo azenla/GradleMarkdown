@@ -1,0 +1,27 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group = "com.directmyfile"
+version = "1.0-SNAPSHOT"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+    compile "org.pegdown:pegdown:1.4.2"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.0-20140322230012+0000"
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('repo'))
+        }
+    }
+}

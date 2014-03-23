@@ -1,0 +1,18 @@
+apply plugin: 'markdown'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url uri('../repo')
+        }
+    }
+
+    dependencies {
+        classpath group: 'com.directmyfile', name: 'GradleMarkdown', version: '1.0-SNAPSHOT'
+    }
+}
+
+markdown {
+    srcDir = file("src/")
+}
